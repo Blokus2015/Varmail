@@ -1,25 +1,14 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import office_pic from './office.jpg';
 import './App.css';
+import Entrybox from './Pages/Components/Entrybox/Entrybox';
+import Landing_page from './Pages/Landing_page/Landing_page'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App {
+  render() {
+    return (
+      <Landing_page />
+    );
+}}
 
 export default App;
