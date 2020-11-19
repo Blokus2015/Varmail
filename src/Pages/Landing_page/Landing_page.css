@@ -1,0 +1,26 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+.Header {
+  color: var(--mainText);
+}
+
+.IntroBox {
+  background-color: var(--accentColor);
+  color: var(--mainText);
+}
+
+.SignUpBox {
+  background-color: var(--mainBackgroundColor);
+}
+
+.Footer {
+  background-color: var(--secondaryAccentColor);
+}
+.HeadingText {
+  font-size: 36px;
+}
