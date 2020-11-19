@@ -6,6 +6,10 @@ import Dropdown from 'react-bootstrap/DropdownButton';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import NavBar from 'react-bootstrap/NavBar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import office_pic from './Images/office.jpg';
+
 
 const landing_page = () => {
   return (
@@ -16,43 +20,82 @@ const landing_page = () => {
       <header>
       </header>
       <body>
-      <Container fluid className="IntroBox">
-        <Container fluid className="Header">
-          <NavBar sticky='top'>
-            <NavBar.Brand>VarMail</NavBar.Brand>
+
+
+
+        <Container fluid className="IntroBox">
+
+          <Container fluid className="Header">
+            <NavBar sticky='top'>
+              <NavBar.Brand>VarMail</NavBar.Brand>
+              <NavBar.Text>
+                Log in
+              </NavBar.Text>
+            </NavBar>
+          </Container>
+
+          <Container>
+          <h1 className="headingText">
+            It’s hard to send personalized emails to your whole team. We think we can help.
+          </h1>
+          </Container>
+
+        </Container>
+
+        <Container fluid className="Image">
+          <img src={office_pic} />
+        </Container>
+
+
+
+        <Container className="SignUpBox">
+          <h4>The internet's first drag and drop email service</h4>
+          <Container>
+            <Form>
+              <Row>
+                <Col>
+                  <Form.Group controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="name" placeholder="Enter Name"/>
+                  </Form.Group>
+                </Col>
+                <Col xs={7}>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="Enter Email"/>
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Enter Password"/>
+                    <Form.Text>
+                      Please use one at least special character
+                    </Form.Text>
+                  </Form.Group>
+                </Col>
+                <Col xs={7}>
+                  <Form.Group controlId="formBasicConfirmation">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control type="confirmation" placeholder="Confirm Password"/>
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Button variant="dark">Sign me up!</Button>
+            </Form>
+          </Container>
+        </Container>
+
+        <Container fluid className="Footer">
+          <NavBar sticky='bottom'>
+            <NavBar.Brand>VarMail © 2020</NavBar.Brand>
             <NavBar.Text>
-              Log in
+              Need help?
             </NavBar.Text>
           </NavBar>
         </Container>
-        <h1 className="headingText">
-          It’s hard to send personalized emails to your whole team. We think we can help.
-        </h1>
-      </Container>
-      <Container fluid className="SignUpBox">
-        <h4>The internet's first drag and drop email service</h4>
-        <Form>
-          <Form.Group controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="name" placeholder="Enter Name"/>
-          </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter Email"/>
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter Password"/>
-          </Form.Group>
-          <Form.Group controlId="formBasicConfirmation">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control type="confirmation" placeholder="Confirm Password"/>
-          </Form.Group>
-        </Form>
-      </Container>
-      <Container fluid className="Footer">
-        <p>Footer</p>
-      </Container>
       </body>
     </>
   )

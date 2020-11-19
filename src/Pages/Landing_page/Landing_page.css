@@ -24,3 +24,13 @@
 .HeadingText {
   font-size: 36px;
 }
+
+.Image {
+  top: 0px;
+  position: absolute;
+}
+
+.flat {
+  background-color: var(--accentColor);
+  color: var(--mainText);
+}
