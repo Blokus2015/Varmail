@@ -1,8 +1,6 @@
 import React from 'react';
 import './Landing_page.css';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
-import Dropdown from 'react-bootstrap/DropdownButton';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import NavBar from 'react-bootstrap/NavBar';
@@ -43,10 +41,8 @@ const landing_page = () => {
         </Container>
 
         <Container fluid className="Image">
-          <img src={office_pic} />
+          <img src={office_pic} alt="People in office"/>
         </Container>
-
-
 
         <Container className="SignUpBox">
           <h4>The internet's first drag and drop email service</h4>

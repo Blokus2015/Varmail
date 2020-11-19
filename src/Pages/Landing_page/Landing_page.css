@@ -27,7 +27,7 @@
 
 .Image {
   top: 0px;
-  position: absolute;
+  position: relative;
 }
 
 .flat {
