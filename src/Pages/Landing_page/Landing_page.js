@@ -7,6 +7,7 @@ import NavBar from 'react-bootstrap/NavBar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import office_pic from './Images/office.jpg';
+import {Link} from 'react-router-dom';
 
 
 const landing_page = () => {
@@ -27,7 +28,7 @@ const landing_page = () => {
             <NavBar sticky='top'>
               <NavBar.Brand>VarMail</NavBar.Brand>
               <NavBar.Text>
-                Log in
+                <Link to="/login">Log in</Link>
               </NavBar.Text>
             </NavBar>
           </Container>

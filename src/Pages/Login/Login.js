@@ -1,6 +1,6 @@
 import React from 'react';
-import './login.css';
-const entrybox = ( props ) => {
+import './Login.css';
+const Login = ( props ) => {
   return (
     <div className="Entrybox">
       <input type="text" placeholder={props.placeholder}/>
@@ -8,4 +8,4 @@ const entrybox = ( props ) => {
   )
 };
 
-export default entrybox;
+export default Login;
