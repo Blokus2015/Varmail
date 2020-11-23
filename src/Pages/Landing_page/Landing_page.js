@@ -16,38 +16,36 @@ const landing_page = () => {
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"/>
       </head>
+
       <header>
       </header>
+
       <body>
+        <div>
+          <img className="Image" src={office_pic} alt="People in office"/>
+        </div>
 
+        <div className="IntroBox">
 
-
-        <Container fluid className="IntroBox">
-
-          <Container fluid className="Header">
+          <div className="Header">
             <NavBar sticky='top'>
               <NavBar.Brand>VarMail</NavBar.Brand>
               <NavBar.Text>
                 <Link to="/login">Log in</Link>
               </NavBar.Text>
             </NavBar>
-          </Container>
+          </div>
 
-          <Container>
-          <h1 className="headingText">
-            It’s hard to send personalized emails to your whole team. We think we can help.
-          </h1>
-          </Container>
+          <div>
+            <h1 className="HeadingText">
+              It’s hard to send personalized emails to your whole team. We think we can help.
+            </h1>
+          </div>
 
-        </Container>
-
-        <Container fluid className="Image">
-          <img src={office_pic} alt="People in office"/>
-        </Container>
-
-        <Container className="SignUpBox">
+        </div>
+        <div className="SignUpBox">
           <h4>The internet's first drag and drop email service</h4>
-          <Container>
+          <Container className="signUpBoxSub" fluid>
             <Form>
               <Row>
                 <Col>
@@ -80,10 +78,10 @@ const landing_page = () => {
                   </Form.Group>
                 </Col>
               </Row>
-              <Button variant="dark">Sign me up!</Button>
+              <Button id="signUpButton" variant="dark">Sign me up!</Button>
             </Form>
           </Container>
-        </Container>
+        </div>
 
         <Container fluid className="Footer">
           <NavBar sticky='bottom'>
