@@ -1,0 +1,43 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+  --altTextColor: black;
+  --altTextColorLight: #e5e5e5;
+}
+
+#orgButton {
+  background-color: var(--accentColor);
+  left: 5px;
+  top: -15px;
+  position: relative;
+}
+
+.Header_text {
+  color: var(--altTextColor);
+  font-size: 25px;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  text-align: left;
+  position: relative;
+}
+
+.Sub_text {
+  color: var(--altTextColor);
+  font-size: 20px;
+  top: -10px;
+  left: 5px;
+  right: 5px;
+  text-align: left;
+  position: relative;
+}
+
+.Card_base {
+  background-color: var(--mainBackgroundColor);
+  border-radius: 5px;
+  height: 13em;
+  width: 20em;
+  box-shadow: 0 0 .7em rgba(0, 0, 0, .75);
+}

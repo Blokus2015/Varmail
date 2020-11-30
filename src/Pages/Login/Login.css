@@ -1,0 +1,53 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+#signUpButton {
+  text-align: center;
+}
+
+#loginTitle {
+  font-size: 30px;
+  font: 'Roboto', sans-serif;
+  color: var(--mainText);
+}
+
+.Form_box {
+  background-color: white;
+  border-radius: 1em;
+  box-shadow:0 0 .25em rgba(255,255,255,.25);
+  max-height: 50em;
+  width: 30em;
+  margin-top:48px;
+  box-sizing:border-box;
+  left: 50%;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  position: absolute;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+.Form_box_underlay {
+  background-color: var(--accentColor);
+  border-radius: 1em;
+  box-shadow:0 0 .25em rgba(255,255,255,.25);
+  height: 24em;
+  width: 32em;
+  margin-top:48px;
+  box-sizing:border-box;
+  left: 50%;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  position: absolute;
+  text-align: center;
+  top:50%;
+  transform:translate(-50%, -57%);
+}

@@ -1,0 +1,30 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+.Var_navbar {
+  background-color: var(--accentColor);
+  height: 48px;
+}
+
+.Logo_text {
+  font-family: 'Pacifico', cursive;
+  color: var(--mainText);
+  top: 5px;
+  font-size: 30px;
+  position: relative;
+}
+
+.Nav_links {
+  color: var(--mainText);
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.Nav_links:hover {
+  color: black;
+  font-weight: bold;
+}
