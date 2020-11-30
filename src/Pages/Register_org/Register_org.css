@@ -1,0 +1,25 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+.Register {
+
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.Title_register {
+  font-size: 30px;
+  color: black;
+  text-align: center;
+}
+
+#SignUpBox {
+  background-color: var(--accentColor);
+  position: relative;
+  height: 50px;
+  text-align: center;
+}

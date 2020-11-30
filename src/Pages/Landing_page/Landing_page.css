@@ -9,6 +9,14 @@
   color: var(--mainText);
 }
 
+.AnswerBoxes {
+  outline-color: var(--accentColor);
+  background-color: blue;
+}
+.AnswerBoxes:focus {
+  border: solid 1px #000;
+  background-color: var(--accentColor);
+}
 .MainBox {
   padding: 30px;
   width: 100%;

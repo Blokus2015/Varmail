@@ -15,6 +15,11 @@
   color: var(--mainText);
 }
 
+.Alt_nav {
+  background-color: var(--accentColor);
+  color: var(--mainText);
+}
+
 .Form_box {
   background-color: white;
   border-radius: 1em;

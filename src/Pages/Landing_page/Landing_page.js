@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import office_pic from './Images/office.jpg';
 import {Link} from 'react-router-dom';
+import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
 
 
 class Landing_page extends Component {
@@ -32,6 +33,8 @@ class Landing_page extends Component {
 
         <header>
         </header>
+
+        <Var_navbar />
 
         <body>
           <div className="MainBox">
@@ -73,7 +76,7 @@ class Landing_page extends Component {
                   <Col xs={7}>
                     <Form.Group controlId="formBasicConfirmation">
                       <Form.Label>Confirm Password</Form.Label>
-                      <Form.Control type="password" placeholder="Confirm Password"/>
+                      <Form.Control className="AnswerBoxes" type="password" placeholder="Confirm Password"/>
                     </Form.Group>
                   </Col>
                 </Row>
@@ -81,15 +84,6 @@ class Landing_page extends Component {
               </Form>
             </Container>
           </div>
-
-          <Container fluid className="Footer">
-            <NavBar sticky='bottom'>
-              <NavBar.Brand>VarMail © 2020</NavBar.Brand>
-              <NavBar.Text>
-                Need help?
-              </NavBar.Text>
-            </NavBar>
-          </Container>
         </body>
       </>
     )

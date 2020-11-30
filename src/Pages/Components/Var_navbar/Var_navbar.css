@@ -6,25 +6,25 @@
 }
 
 .Var_navbar {
-  background-color: var(--accentColor);
+  background-color: var(--mainBackgroundColor);
   height: 48px;
 }
 
 .Logo_text {
   font-family: 'Pacifico', cursive;
-  color: var(--mainText);
+  color: var(--accentColor);
   top: 5px;
   font-size: 30px;
   position: relative;
 }
 
 .Nav_links {
-  color: var(--mainText);
+  color: var(--accentColor);
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
 
 .Nav_links:hover {
-  color: black;
+  color: var(--secondaryAccentColor);
   font-weight: bold;
 }
