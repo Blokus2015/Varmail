@@ -2,11 +2,13 @@
   --mainText: #ffffff;
   --secondaryAccentColor: #F7B9B9;
   --accentColor: rgba(226, 0, 60, 0.7);
+  --accentColorLight: rgba(226, 0, 60, 0.5);
   --mainBackgroundColor: #ffffff;
 }
 
 #signUpButton {
   text-align: center;
+  background-color: var(--accentColorLight);
 }
 
 #loginTitle {
@@ -39,7 +41,7 @@
 }
 
 .Form_box_underlay {
-  background-color: var(--accentColor);
+  background-color: var(--accentColorLight);
   border-radius: 1em;
   box-shadow:0 0 .25em rgba(255,255,255,.25);
   height: 24em;
@@ -55,4 +57,46 @@
   text-align: center;
   top:50%;
   transform:translate(-50%, -57%);
+}
+
+html {
+  height:100%;
+}
+
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #F7B9B9 50%, #ffffff 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
 }

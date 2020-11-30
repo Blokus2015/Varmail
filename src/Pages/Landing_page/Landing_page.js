@@ -29,22 +29,16 @@ class Landing_page extends Component {
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"/>
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
         </head>
-
-        <header>
-        </header>
-
-        <Var_navbar />
-
         <body>
-          <div className="MainBox">
+          <div className="MainBox btn-group">
             <div className="MainTextBox">
                 <h1 className="HeadingText">
                   It’s hard to send personalized emails to your whole team. We think we can help.
                 </h1>
             </div>
           </div>
-
           <div className="SignUpBox">
             <h4 id="tagline">CS50's first drag and drop email service</h4>
             <Container className="SignUpBoxSub" fluid>
@@ -84,6 +78,7 @@ class Landing_page extends Component {
               </Form>
             </Container>
           </div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
         </body>
       </>
     )

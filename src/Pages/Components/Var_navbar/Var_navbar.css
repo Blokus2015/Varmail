@@ -18,6 +18,20 @@
   position: relative;
 }
 
+.Logo_text_link {
+  font-family: 'Pacifico', cursive;
+  color: var(--accentColor);
+  top: 5px;
+  font-size: 30px;
+  position: relative;
+  text-decoration: none;
+}
+
+.Logo_text_link:hover {
+  text-decoration: none;
+  color: var(--accentColor);
+}
+
 .Nav_links {
   color: var(--accentColor);
   font-family: 'Roboto', sans-serif;

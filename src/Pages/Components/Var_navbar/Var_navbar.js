@@ -14,7 +14,7 @@ const Var_navbar = ( props ) => {
       </head>
 
       <Navbar className="Var_navbar">
-        <Navbar.Brand><p className="Logo_text">VarMail</p></Navbar.Brand>
+        <Navbar.Brand><p><Link to="/" className="Logo_text_link">VarMail</Link></p></Navbar.Brand>
           <Nav>
             <Nav.Link><Link to="/groups" className="Nav_links">Dashboard</Link></Nav.Link>
             <Nav.Link><Link to="/login" className="Nav_links">Login</Link></Nav.Link>
