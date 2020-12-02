@@ -1,0 +1,34 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+.Var_footer {
+  background-color: var(--secondaryAccentColor);
+  height: 48px;
+}
+
+.Footer_text {
+  color: var(--mainText);
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+}
+
+.Footer_text:hover {
+  color: var(--mainText);
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+}
+
+.Foot_links {
+  color: var(--mainText);
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.Foot_links:hover {
+  color: var(--mainText);
+  font-weight: bold;
+}

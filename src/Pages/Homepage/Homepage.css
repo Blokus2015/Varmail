@@ -1,0 +1,10 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+.Card_grid {
+  display: grid | inline-grid;
+}

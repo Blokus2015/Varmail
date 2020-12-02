@@ -10,6 +10,8 @@ import Col from 'react-bootstrap/Col';
 import office_pic from './Images/office.jpg';
 import {Link} from 'react-router-dom';
 import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
+import Var_footer from '../Components/Var_footer/Var_footer.js';
+
 
 
 class Landing_page extends Component {
@@ -32,7 +34,9 @@ class Landing_page extends Component {
           <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
         </head>
         <body>
+
           <div className="MainBox btn-group">
+            <h1 className="Logo_text">Varmail</h1>
             <div className="MainTextBox">
                 <h1 className="HeadingText">
                   It’s hard to send personalized emails to your whole team. We think we can help.
@@ -40,7 +44,7 @@ class Landing_page extends Component {
             </div>
           </div>
           <div className="SignUpBox">
-            <h4 id="tagline">CS50's first drag and drop email service</h4>
+            <h4 id="tagline">CS50's first drag and drop email service for organizers</h4>
             <Container className="SignUpBoxSub" fluid>
               <Form>
                 <Row>
@@ -78,6 +82,7 @@ class Landing_page extends Component {
               </Form>
             </Container>
           </div>
+          <Var_footer />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
         </body>
       </>
