@@ -16,7 +16,7 @@ const Var_footer = ( props ) => {
       <Navbar className="Var_footer" fixed="bottom">
         <Navbar.Brand><Link to="/" className="Footer_text">Made by Sean Roades & Quan Narula</Link></Navbar.Brand>
           <Nav>
-            <Nav.Link><Link to="/groups" className="Foot_links">Dashboard</Link></Nav.Link>
+            <Nav.Link><Link to="/homepage" className="Foot_links">Dashboard</Link></Nav.Link>
             <Nav.Link><Link to="/login" className="Foot_links">Login</Link></Nav.Link>
             <Nav.Link><Link to="/" className="Foot_links">Logout</Link></Nav.Link>
           </Nav>
