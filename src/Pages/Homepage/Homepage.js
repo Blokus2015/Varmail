@@ -9,13 +9,15 @@ import Col from 'react-bootstrap/Col';
 
 class Homepage extends Component {
   render() {
+    var result = []
+    for (var i = 0; i < 5; i++) {
+      result.push(<Org_card groupName="Harvard Venture Capital Group"/>)
+    }
+
     return (
       <>
         <Var_navbar />
-          <Org_card groupName="Harvard Venture Capital Group"/>
-          <Org_card groupName="Harvard Venture Capital Group"/>
-          <Org_card groupName="Harvard Venture Capital Group"/>
-          <Org_card groupName="Harvard Venture Capital Group"/>
+        {result}
       </>
     )
   }

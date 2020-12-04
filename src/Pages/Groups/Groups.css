@@ -5,6 +5,19 @@
   --mainBackgroundColor: #ffffff;
 }
 
+
+/* circle background info */
+.Groups_title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 30px;
+  color: var(--mainText);
+  text-align: center;
+}
+
+.Names_of_group {
+  font-size: 24px;
+}
+
 body {
 	background: linear-gradient(-45deg, #ffffff, rgba(226, 0, 60, 0.7), #F7B9B9, rgba(226, 0, 60, 0.7));
 	background-size: 400% 400%;

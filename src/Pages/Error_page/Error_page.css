@@ -1,0 +1,19 @@
+:root {
+  --mainText: #ffffff;
+  --secondaryAccentColor: #F7B9B9;
+  --accentColor: rgba(226, 0, 60, 0.7);
+  --mainBackgroundColor: #ffffff;
+}
+
+.Error_text {
+  color: var(--mainText);
+  font-size: 36px;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.ErrorBG {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--accentColor);
+}
