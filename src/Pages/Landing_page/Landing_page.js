@@ -11,17 +11,19 @@ import office_pic from './Images/office.jpg';
 import {Link} from 'react-router-dom';
 import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
 import Var_footer from '../Components/Var_footer/Var_footer.js';
+import { useHistory } from 'react-router-dom';
 
 
 
 class Landing_page extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { name: ''};
+  constructor() {
+    super();
+    this.routeChange = this.routeChange.bind(this);
   }
 
-  nameChangedHandler = (event) => {
-    this.setState({username: event.target.value});
+  routeChange() {
+    let path = "/Homepage";
+    this.props.history.push(path);
   }
 
   render () {
@@ -78,13 +80,11 @@ class Landing_page extends Component {
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button type="submit" id="signUpButton" variant="dark">Sign me up!</Button>
+                <Button type="submit" id="signUpButton" variant="dark" onClick={this.routeChange}>Sign me up!</Button>
               </Form>
             </Container>
           </div>
           <Var_footer />
-
-
         </body>
       </>
     )

@@ -22,7 +22,7 @@ const Routes = () => {
           <Route exact path="/re_survey" component={Re_survey} />
           <Route exact path="/cr_survey" component={Cr_survey} />
           <Route exact path="/groups" component={Groups} />
-          <Route exact path="/homepage" component={Homepage} />
+          <Route path="/homepage/:id" component={Homepage} />
           <Route component={Error_page} />
         </Switch>
     </>
