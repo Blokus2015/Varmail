@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './Pages/Routes/Routes';
 
 import firebase from 'firebase/app';
+import 'firebase/database';
 
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';

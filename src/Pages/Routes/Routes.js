@@ -9,6 +9,7 @@ import Cr_survey from '../Create_survey/Create_survey.js';
 import Groups from '../Groups/Groups.js';
 import Homepage from '../Homepage/Homepage.js';
 import Error_page from '../Error_page/Error_page.js';
+import Test from '../Components/Test/Test.js';
 
 
 
@@ -22,7 +23,8 @@ const Routes = () => {
           <Route exact path="/re_survey" component={Re_survey} />
           <Route exact path="/cr_survey" component={Cr_survey} />
           <Route exact path="/groups" component={Groups} />
-          <Route path="/homepage/:id" component={Homepage} />
+          <Route path="/homepage" component={Homepage} />
+          <Route path="/testing" component={Test} />
           <Route component={Error_page} />
         </Switch>
     </>

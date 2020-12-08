@@ -5,7 +5,6 @@ import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Test from '../Components/Test/Test.js';
 
 //for testing purposes!
 import { withRouter } from 'react-router-dom';
