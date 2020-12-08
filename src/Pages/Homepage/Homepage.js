@@ -6,6 +6,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import { firebaseConnect } from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+
 //for testing purposes!
 import { withRouter } from 'react-router-dom';
 //end testing
@@ -29,7 +34,7 @@ class Homepage extends Component {
       <>
         <Var_navbar />
         <div>
-          <p>Welcome Back, {this.state.id}!</p>
+          <p>Welcome Back, {this.props.email}!</p>
         </div>
         {result}
       </>
@@ -37,4 +42,13 @@ class Homepage extends Component {
   }
 };
 
-export default withRouter(Homepage);
+
+const mapStateToProps = state => {
+  return {homepage: state.firebase.data['users'], email: state.firebase.auth.email}
+}
+
+export default compose(
+  firebaseConnect(['/homepage']),
+  connect(mapStateToProps),)
+  (Homepage);
+

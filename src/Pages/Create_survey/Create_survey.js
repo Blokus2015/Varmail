@@ -14,23 +14,16 @@ class CreateSurvey extends Component {
         // this.handleNewQuestion = this.handleNewQuestion.bind(this);
     }
 
-    
-
-    // handleNewQuestion() {
-    //     questionList.push(
-    //         <Form.Group>
-    //             <Form.Label>New Question</Form.Label>
-    //             <Form.Control placeholder="Type question here"/>
-    //         </Form.Group>
-    //     )
-    // }
+    handleNewQuestion() {
+        this.setState({question: 'Old question goes here'})
+    }
 
     render(){
 
         var doneQuestionList = (
             <>
                 <p>Question</p>
-                <p>You should start adding the people</p>
+                <p>{this.state.question}</p>
             </>
         )
 
@@ -39,7 +32,6 @@ class CreateSurvey extends Component {
             <Form.Label>Question</Form.Label>
             <Form.Control placeholder="Type question here" />
         </Form.Group>);
-
 
         return(
             <>
@@ -65,7 +57,7 @@ class CreateSurvey extends Component {
                             </Form.Group>
                             {doneQuestionList}
                             {questionList}
-                            <Button variant="dark surveyButton">Add New Question</Button>
+                            <Button variant="dark surveyButton" onClick={this.handleNewQuestion}>Add New Question</Button>
                         </Form>
                     </div>
                 </div>

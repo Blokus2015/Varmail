@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import { BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Routes from './Pages/Routes/Routes.js'
+import Routes from './Pages/Routes/Routes.js';
+import { isLoaded } from 'react-redux-firebase';
 
-class App extends Component{
-  render() {
+const App = props => {
+  if (!isLoaded(props.auth, props.profile)) {
+    return <div>Authentication loading...</div>
+  }
     return (
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
     );
-}}
+}
 
-export default App;
+const mapStateToProps = state => {
+  return{ auth: state.firebase.auth, profile: state.firebase.profile };
+};
+
+export default connect(mapStateToProps)(App);

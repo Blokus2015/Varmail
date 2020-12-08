@@ -27,8 +27,8 @@ class Groups extends Component {
         <Button to="/" variant="dark">Back</Button>
         <div className="Groups_title">
           <h1>Team members</h1>
-          <p>{this.props.teamMembers.surveyQuestion1.answers.answer1}</p>
-          <p>{this.props.teamMembers.surveyQuestion1.answers.answer2}</p>
+          {/*<p>{this.props.teamMembers.surveyQuestion1.answers.answer1}</p>
+          <p>{this.props.teamMembers.surveyQuestion1.answers.answer2}</p> */}
 
         </div>
         <div class="ripple-background">
