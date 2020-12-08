@@ -15,7 +15,7 @@ class CreateSurvey extends Component {
     }
 
     handleNewQuestion() {
-        this.setState({question: 'Old question goes here'})
+        this.setState({question: 'Old question goes here'});
     }
 
     render(){
