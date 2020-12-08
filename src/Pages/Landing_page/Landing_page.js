@@ -12,7 +12,6 @@ import {Link, Redirect} from 'react-router-dom';
 import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
 import Var_footer from '../Components/Var_footer/Var_footer.js';
 
-
 import { useHistory } from 'react-router-dom';
 import { firebaseConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
@@ -64,7 +63,9 @@ class Landing_page extends Component {
     // if (this.props.isLoggedIn) {
     //   return <Redirect to="/groups" />
     // }
-
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/homepage"/>
+    }
     return (
       <>
         <head>
