@@ -8,6 +8,7 @@ import Routes from './Pages/Routes/Routes';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
+import 'firebase/auth';
 
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
