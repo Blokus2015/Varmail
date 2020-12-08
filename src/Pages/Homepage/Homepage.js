@@ -21,8 +21,8 @@ class Homepage extends Component {
 
   render() {
     var result = []
-    for (var i = 0; i < 5; i++) {
-      result.push(<Org_card groupName="Harvard Venture Capital Group"/>)
+    for (var i = 0; i < 10; i++) {
+      result.push(<Org_card groupName="Harvard Venture Capital Group dsasfadf"/>)
     }
 
     return (

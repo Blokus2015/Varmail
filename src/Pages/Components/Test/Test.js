@@ -5,18 +5,18 @@ import { firebaseConnect, isLoaded } from  'react-redux-firebase';
 import { compose } from 'redux';
 
 const Test = props => {
-  if (!isLoaded(props.person)) {
+  if (!isLoaded(props.users)) {
     return <div>Loading users data!</div>
   }
   return (
-      <div>{props.person.sean.name}</div>
+      <div>{props.users.sean.name}</div>
   )
 };
 
 const mapStateToProps = state => {
   console.log(state);
-  const person = state.firebase.data.users;
-  return{ person: person };
+  const users = state.firebase.data.users;
+  return{ users: users };
 };
 
 // export default firebaseConnect(['/users'])(connect(mapStateToProps)(Test));

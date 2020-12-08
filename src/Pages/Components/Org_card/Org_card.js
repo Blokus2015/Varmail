@@ -7,10 +7,10 @@ class Org_card extends Component {
     return (
       <>
         <div className="Card_base">
-          <h3 className="Header_text">{this.props.groupName}</h3>
-          <p className="Sub_text">0 members</p>
-          <Button id="orgButton" variant="dark">View Organization</Button>
-          <Button variant="dark" id="SurveyButton">Make survey</Button>
+            <h3 className="Header_text">{this.props.groupName}</h3>
+            <p className="Sub_text">0 members</p>
+            <Button id="orgButton" variant="dark">View Organization</Button>
+            <Button variant="dark" id="SurveyButton">Make survey</Button>
       </div>
       </>
   )

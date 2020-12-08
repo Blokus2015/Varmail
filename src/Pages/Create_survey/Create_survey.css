@@ -1,0 +1,31 @@
+.surveyTitles {
+    font-size: 48px;
+    color: white;
+    text-align: center;
+}
+
+.surveyBody {
+    text-align: center;
+    background-color: white;
+    height: auto;
+    width: 97%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.surveyBodyInner {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.surveyBG {
+    background-color: var(--accentColor);
+    height: 100vh
+}
+
+.surveyButton {
+    background-color: var(--accentColor);
+    margin-bottom: 5px;
+}
