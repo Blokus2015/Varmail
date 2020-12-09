@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import './Survey_overlay.css';
 import { Modal, Button, Form } from "react-bootstrap";
 import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 
-class SurveyOverlay extends Component {
+
+class Survey_overlay extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +31,7 @@ render() {
     <div className="surveyBody">
     <div className="surveyBodyInner">
     <p className="surveyHeaders">
-        Congratulations on creaing your survey!
+        Congratulations on creating your survey!
     </p>
 
     <p className="surveyText">
@@ -37,7 +39,7 @@ render() {
     </p>
 
     <p className="surveyText">
-        *insert link here*
+        *insert link here* 
     </p>
 
     <p className="surveyText">
@@ -54,4 +56,4 @@ render() {
 }
 };
 
-export default SurveyOverlay;
+export default withRouter(Survey_overlay);

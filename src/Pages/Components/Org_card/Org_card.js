@@ -18,19 +18,20 @@ class Org_card extends Component {
   handleSurvey = () => {
     console.log('handling survey creation...');
     const surveyId = this.props.firebase.push(`Organizations/${this.props.uid}/${this.props.orgId}`).key;
-    const newSurvey = {name: "usersSurveyName"};
+    const newSurvey = {name: "Your survey"};
     const updates = {};
     console.log('getting to updates')
     updates[`/Organizations/${this.props.uid}/${this.props.orgId}/${surveyId}`] = newSurvey;
 
-    const onComplete = () => {
+    const onComplete = (orgThing) => {
       console.log('redirecting user');
-      this.props.history.push(`/create_survey/${surveyId}`);
+      this.props.history.push(`/create_survey/${surveyId}`, {state: { theOrgId: orgThing }});
       console.log('redirect complete')
+      console.log(this.props.orgId);
+      console.log('finished handling survey');
     }
-    this.props.firebase.update(`/`, updates, onComplete);
-    console.log(this.props.orgId);
-    console.log('finished handling survey');
+    this.props.firebase.update(`/`, updates, onComplete(this.props.orgId));
+    
 
   }
 

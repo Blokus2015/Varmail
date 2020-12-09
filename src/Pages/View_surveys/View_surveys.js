@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './View_surveys.css';
 import Button from 'react-bootstrap/Button';
 import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 
 
 class viewSurveys extends Component {
@@ -37,7 +38,7 @@ class viewSurveys extends Component {
               42 responses
             </div>
             <div className="link">
-              *insert url here*
+              link here
             </div>
           </div>
 
