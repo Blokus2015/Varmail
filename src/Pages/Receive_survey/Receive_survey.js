@@ -14,8 +14,6 @@ class Receive_survey extends Component {
         }
     }
 
-    
-
     render(){
 
         var questions = (<Form.Group controlId="formBasicEmail">
@@ -23,7 +21,7 @@ class Receive_survey extends Component {
                         <Form.Control type="email" placeholder="Enter email" />
                     </Form.Group>
                     );
-                    
+
         return (
             <>
                 <head>

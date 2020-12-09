@@ -24,7 +24,9 @@ const Routes = (props) => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register_org" component={Register_org} />
           <Route exact path="/receive_survey" component={Receive_survey} />
-          <Route path="/create_survey/:id" component={Create_survey} />
+          <Route path="/create_survey/:id">
+            <Create_survey uid={props.uid}/> 
+            </Route>
           <Route exact path="/groups" component={Groups} />
           <Route exact path="/homepage" >
             <Homepage uid={props.uid}/>

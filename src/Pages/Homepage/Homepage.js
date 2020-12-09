@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 import { firebaseConnect, isLoaded, populate } from 'react-redux-firebase';
@@ -53,7 +53,7 @@ class Homepage extends Component {
           this.props.isLoggedIn ?
             <div>
               <p>Welcome Back, {this.props.email}!</p>
-              <p>Not {this.props.email}?</p><Button onClick={() => this.props.firebase.logout()}className="signOutButton">Logout</Button>
+              <p>Not {this.props.email}?</p><Button onClick={() => this.props.firebase.logout()} variant="dark">Logout</Button>
             </div> :
           <div>
             <Link to='/'>Register</Link>
@@ -64,6 +64,8 @@ class Homepage extends Component {
         
       <div>
           {orgList}
+          <br></br>
+          <Button variant="dark"><Link to="/register_org">Create new organization</Link></Button>
       </div>
       </>
     )
