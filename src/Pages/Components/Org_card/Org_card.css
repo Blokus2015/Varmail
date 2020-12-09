@@ -14,11 +14,27 @@
   position: relative;
 }
 
+#surveysMade {
+  background-color: var(--accentColor);
+  left: 5px;
+  top: -7px;
+  position: relative;
+}
+
 #SurveyButton {
   background-color: var(--accentColor);
   left: 10px;
   top: -15px;
   position: relative;
+}
+
+.linkCustom {
+  color: white;
+}
+
+.linkCustom:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .Header_text {
