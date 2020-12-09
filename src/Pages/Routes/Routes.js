@@ -10,10 +10,13 @@ import Groups from '../Groups/Groups.js';
 import Homepage from '../Homepage/Homepage.js';
 import Error_page from '../Error_page/Error_page.js';
 import Test from '../Components/Test/Test.js';
+import Survey_overlay from '../Survey_overlay/Survey_overlay.js';
+import View_surveys from '../View_surveys/View_surveys.js';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
 
 
-const Routes = () => {
+const Routes = (props) => {
   return (
     <>
         <Switch>
@@ -23,7 +26,11 @@ const Routes = () => {
           <Route exact path="/receive_survey" component={Receive_survey} />
           <Route exact path="/create_survey" component={Create_survey} />
           <Route exact path="/groups" component={Groups} />
-          <Route path="/homepage" component={Homepage} />
+          <Route exact path="/homepage" >
+            <Homepage uid={props.uid}/>
+          </Route>
+          <Route path="/survey_overlay" component={Survey_overlay} />
+          <Route path="/view_survey" component={View_surveys} />
           <Route path="/testing" component={Test} />
           <Route component={Error_page} />
         </Switch>
