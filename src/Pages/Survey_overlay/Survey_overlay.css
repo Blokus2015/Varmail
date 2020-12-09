@@ -1,0 +1,59 @@
+.surveyTitles {
+    font-size: 48px;
+    color: white;
+    text-align: center;
+}
+
+.surveyHeaders {
+    font-size: 36px;
+    color: black;
+    text-align: center;
+}
+
+.surveyText {
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
+
+.surveyInstructions {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+.surveyQuestions {
+    font-size: 18px;
+    color: black;
+    text-align: left;
+}
+
+.surveyBody {
+    text-align: center;
+    background-color: white;
+    height: auto;
+    width: 97%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 50%;
+
+}
+
+.surveyBodyInner {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.surveyBG {
+    background-color: var(--accentColor);
+    height: 100vh;
+    padding: 100px 0;
+}
+
+.surveyButton {
+    background-color: var(--accentColor);
+    margin-bottom: 5px;
+}

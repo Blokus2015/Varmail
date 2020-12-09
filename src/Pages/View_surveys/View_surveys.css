@@ -1,0 +1,58 @@
+
+
+.Register {
+
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.Title_register {
+  font-size: 30px;
+  color: black;
+  text-align: center;
+}
+
+#SignUpBox {
+  background-color: var(--accentColor);
+  position: relative;
+  height: 50px;
+  text-align: center;
+}
+
+.corner {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+.body {
+    text-align: left;
+    height: auto;
+    width: 97%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 50%;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid gray;
+    border-radius: 30px;
+}
+
+.title {
+      font-size: 24px;
+      color: black;
+}
+
+.responses {
+      font-size: 18px;
+      color: gray;
+}
+
+.link {
+      font-size: 18px;
+      color: blue;
+}
