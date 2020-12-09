@@ -22,10 +22,16 @@ class Org_card extends Component {
     const updates = {};
     console.log('getting to updates')
     updates[`/Organizations/${this.props.uid}/${this.props.orgId}/${surveyId}`] = newSurvey;
-    this.props.firebase.update(`/`, updates);
+
+    const onComplete = () => {
+      console.log('redirecting user');
+      this.props.history.push(`/create_survey/${surveyId}`);
+      console.log('redirect complete')
+    }
+    this.props.firebase.update(`/`, updates, onComplete);
     console.log(this.props.orgId);
     console.log('finished handling survey');
-    console.log('redirecting user');
+
   }
 
   render(){
@@ -42,4 +48,7 @@ class Org_card extends Component {
   )
 }};
 
-export default firebaseConnect()(Org_card);
+export default compose(
+  withRouter,
+  firebaseConnect(),
+  )(Org_card);
