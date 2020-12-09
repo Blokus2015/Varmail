@@ -8,8 +8,6 @@ class viewSurveys extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      organization: '',
-      success: '',
     }
   }
 
@@ -59,9 +57,6 @@ class viewSurveys extends Component {
           <h1 className="Title_register">
           <Button variant =  "dark surveyButton" href="/Create_survey" class="button">Create a New Survey</Button>
           </h1>
-
-
-
       </>
     )
   }
