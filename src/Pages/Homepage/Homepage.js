@@ -33,7 +33,7 @@ class Homepage extends Component {
       result.push(<Org_card groupName="Harvard Venture Capital Group dsasfadf"/>)
     }
     if(!isLoaded(this.props.profile)) {
-      return <div>Profile loading for homepage...</div>
+      return<div>Profile loading for homepage...</div>
     }
     return (
       <>

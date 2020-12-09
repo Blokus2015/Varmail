@@ -117,11 +117,11 @@ class Landing_page extends Component {
                   <Col xs={7}>
                     <Form.Group controlId="formBasicConfirmation">
                       <Form.Label>Confirm Password</Form.Label>
-                      <Form.Control onChange={this.handleChange} className="AnswerBoxes" type="password" placeholder="Confirm Password"/>
+                      <Form.Control onChange={this.handleChange} name="passwordConfirm" className="AnswerBoxes" type="password" placeholder="Confirm Password" value={this.state.passwordConfirm}/>
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button id="signUpButton" variant="dark" onClick={this.register}>Sign me up!</Button>
+                <Button id="signUpButton" variant="dark" disabled={!this.state.name.trim() || !this.state.password.trim() || !this.state.email.trim() || !this.state.passwordConfirm.trim()} onClick={this.register}>Sign me up!</Button>
               </Form>
             </Container>
           </div>

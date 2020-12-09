@@ -9,6 +9,9 @@ import Routes from './Pages/Routes/Routes';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
+import 'firebase/storage'
+import 'firebase/functions';
+import 'firebase/analytics'
 
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
@@ -32,6 +35,9 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+const storage = firebase.storage();
+
 
 // Add firebase to reducers
 const rootReducer = combineReducers({
@@ -72,3 +78,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export { firebaseConfig, firebase, storage as default };
