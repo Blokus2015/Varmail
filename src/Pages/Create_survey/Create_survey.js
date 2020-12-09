@@ -2,6 +2,10 @@ import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import './Create_survey.css';
 import { Modal, Button, Form } from "react-bootstrap";
+import { Link, withRouter, Redirect } from 'react-router-dom';
+// import { firebaseConnect } from 'react-redux-firebase';
+// import { compose } from 'redux';
+// import { connect } from 'react-redux';
 
 {/*
 
@@ -107,7 +111,7 @@ export default CreateSurvey;
 
 */}
 
-
+{/*
 function CreateSurvey() {
 
 
@@ -171,5 +175,120 @@ function CreateSurvey() {
     </>
   );
 }
+
+export default CreateSurvey;
+
+
+*/}
+
+
+
+
+class CreateSurvey extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cards: [],
+      front: '',
+      name: '',
+    };
+  }
+
+  addCard = () => {
+    if (!this.state.front.trim()) {
+      alert('Cannot add a blank question');
+      return;
+    }
+
+    const newCard = { front: this.state.front};
+    const cards = this.state.cards.slice().concat(newCard);
+    this.setState({ cards, front: ''});
+  };
+
+  deleteCard = index => {
+    const cards = this.state.cards.slice();
+    cards.splice(index, 1);
+    this.setState({ cards });
+  };
+
+  handleChange = event =>
+    this.setState({ [event.target.name]: event.target.value });
+
+  render() {
+
+    const cards = this.state.cards.map((card, index) => {
+      return (
+        <tr key={index}>
+          <td>{card.front}</td>
+          <td>
+            <Button variant="dark surveyButton"  onClick={() => this.deleteCard(index)}>Delete Question</Button>
+          </td>
+        </tr>
+      );
+    });
+
+    return (
+      <>
+      <head>
+          <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous"
+          />
+      </head>
+      <div className="surveyBG">
+      <p className="surveyTitles">
+          Create A Survey
+      </p>
+      <p className="surveyInstructions">
+          Making a survey is easy- just create a title and add some questions!
+      </p>
+      <div className="surveyBody">
+      <div className="surveyBodyInner">
+      <h className="surveyHeaders">Survey Title</h>
+        <input
+          name="name"
+          onChange={this.handleChange}
+          placeholder="Enter your survey name here"
+          value={this.state.name}
+          />
+      <h className="surveyHeaders">Questions</h>
+      <ul className = "surveyQuestions">
+          <ul>{cards}</ul>
+      </ul>
+          <input
+            name="front"
+            onChange={this.handleChange}
+            placeholder="Enter your question here"
+            value={this.state.front}
+          />
+
+          <Button variant="dark surveyButton" onClick={this.addCard}>Add Question</Button>
+       <br/>
+            <Button variant="dark surveyButton"
+              href="/Survey_overlay"
+              disabled={this.state.cards.length === 0}
+              onClick={this.createDeck}
+            >
+              Finish Survey
+            </Button>
+
+
+          </div>
+          </div>
+
+
+
+
+
+
+      </div>
+      </>
+    );
+  }
+}
+
+
 
 export default CreateSurvey;

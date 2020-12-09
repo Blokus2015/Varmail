@@ -24,6 +24,22 @@ body {
 	animation: gradient 15s ease infinite;
 }
 
+
+.mainText {
+    text-align: center;
+    background-color: white;
+    height: auto;
+    width: 97%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    color: gray;
+    border-radius: 30px;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;

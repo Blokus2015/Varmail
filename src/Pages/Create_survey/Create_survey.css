@@ -10,6 +10,10 @@
     text-align: center;
 }
 
+input {
+  width: 100%;
+}
+
 .surveyInstructions {
     font-size: 24px;
     color: white;
