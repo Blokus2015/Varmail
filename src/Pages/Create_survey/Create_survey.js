@@ -20,17 +20,21 @@ class Create_survey extends Component {
 
   finishSurvey = (props) => {
     console.log('handling survey question & making sure this does not blow up...');
-    const newTitle = {title: "{this.state.name}"};
-    this.props.firebase.push(`Organizations/${this.props.uid}/${this.props.location.state.state.theOrgId}/${this.props.match.params.id}`)
+    var title = this.state.name;
+    const newSurveyQuestions = {title: title, questionsInList: this.state.questionList};
+    //const question = {question: "how was your day?bruhhhhhhh"}
+    //const newQuestionList = this.props.firebase.push(`Organizations/${this.props.uid}/${this.props.location.state.state.theOrgId}/${this.props.match.params.id}`).key
     const updates = {};
     console.log('updating title')
-    updates[`/Organizations/${this.props.uid}/${this.props.location.state.state.theOrgId}/${this.props.match.params.id}`] = newTitle;
+    // updates[`/Organizations/${this.props.uid}/${this.props.location.state.state.theOrgId}/${this.props.match.params.id}`] = newTitle;
+    updates[`/Organizations/${this.props.uid}/${this.props.location.state.state.theOrgId}/${this.props.match.params.id}`] = newSurveyQuestions;
 
     const onComplete = () => {
       console.log('redirecting user');
       this.props.history.push(`/survey_overlays`);
       console.log('redirect complete')
     }
+
     this.props.firebase.update(`/`, updates, onComplete);
     console.log(this.props.orgId);
     console.log('finished handling survey');
@@ -91,7 +95,7 @@ class Create_survey extends Component {
           Create A Survey
       </p>
       <p className="surveyInstructions">
-          Making a survey is easy--just create a title and add some questions! {this.props.location.state.state.theOrgId} {this.state.name}
+          Making a survey is easy--just create a title and add some questions!
       </p>
       <div className="surveyBody">
       <div className="surveyBodyInner">
@@ -114,7 +118,7 @@ class Create_survey extends Component {
           />
           <Button variant="dark surveyButton" onClick={this.addQuestion}>Add Question</Button>
        <br/>
-            <Button variant="dark surveyButton" href="/Survey_overlay" disabled={this.state.questionList.length === 0 || !this.state.name} onClick={this.finishSurvey.bind(this, this.state.name, this.props.location.state.state.theOrgId)}>
+            <Button variant="dark surveyButton" href="/Survey_overlay" disabled={this.state.questionList.length === 0 || !this.state.name} onClick={this.finishSurvey.bind(this, this.state.name, this.props.location.state.state.theOrgId, this.state.questionList)}>
               Finish Survey
             </Button>
           </div>

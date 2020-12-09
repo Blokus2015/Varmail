@@ -31,7 +31,7 @@ render() {
     <div className="surveyBody">
     <div className="surveyBodyInner">
     <p className="surveyHeaders">
-        Congratulations on creating your survey!
+        Congratulations on creating your survey! 
     </p>
 
     <p className="surveyText">

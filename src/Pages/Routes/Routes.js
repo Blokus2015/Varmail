@@ -27,7 +27,9 @@ const Routes = (props) => {
           <Route path="/create_survey/:id">
             <Create_survey uid={props.uid}/> 
             </Route>
-          <Route exact path="/groups" component={Groups} />
+          <Route path="/groups/:orgId">
+            <Groups uid={props.uid}/>
+          </Route>
           <Route exact path="/homepage" >
             <Homepage uid={props.uid}/>
           </Route>

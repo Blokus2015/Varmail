@@ -6,11 +6,16 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded } from  'react-redux-firebase';
 import { compose } from 'redux';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 
 class Groups extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      sender: '',
+      recipient: '',
+      subject: '',
+      message: '',
     };
   }
 
@@ -27,11 +32,26 @@ class Groups extends Component {
         e.target.reset()
     }
 
+  handleSendSurvey = () => {
+    this.setState({sender: 'from sean', recipient: 'seanroades@gmail.com', subject: 'this is my subject', })
+  }
 
   render(){
-    if(!isLoaded(this.props.teamMembers)) {
-      return <div>Loading team teamMembers</div>
-    }
+
+    var surveyList = <p>no surveys yet!</p>
+
+    const mySurveys = this.props.bigChungusSurvey;
+
+    console.log(mySurveys);
+
+    if (mySurveys) {
+      surveyList =
+      Object.keys(mySurveys).map((mySurveyId, mySurveyindex) => {
+        console.log("in surveys")
+        return <Button onClick={this.handleSendSurvey}>{mySurveys[mySurveyId].title}</Button>
+      });
+      }
+
     return (
       <>
       <head>
@@ -39,12 +59,11 @@ class Groups extends Component {
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
       </head>
 
-        <Button to="/" variant="dark">Back</Button>
+        <Link to="/" variant="dark">Back</Link>
         <div className="Groups_title">
-          <h1>Team members</h1>
+          <h1>Send out survey</h1>
           {/*<p>{this.props.teamMembers.surveyQuestion1.answers.answer1}</p>
           <p>{this.props.teamMembers.surveyQuestion1.answers.answer2}</p> */}
-
         </div>
         <div class="ripple-background">
           <div class="circle xxlarge shade1"></div>
@@ -53,18 +72,22 @@ class Groups extends Component {
           <div class="circle mediun shade4"></div>
           <div class="circle small shade5"></div>
         </div>
-
-
         <div>
           <div className="container">
             <div className="mainText">
+              {surveyList}
+              <br></br>
+              {this.state.sender}
+              {this.state.recipient}
+              {this.state.sender}
+              {this.state.sender}
              <form onSubmit={this.sendEmail}>
                     <div className="row pt-5 mx-auto">
                         <div className="col-8 form-group mx-auto">
                             <input type="text" className="form-control" placeholder="Your Name" name="from_Name"/>
                         </div>
                         <div className="col-8 form-group pt-2 mx-auto">
-                            <input type="text" className="form-control" placeholder="Teams" name="to_Name"/>
+                            <input type="text" className="form-control" placeholder="To name" name="to_Name"/>
                         </div>
                         <div className="col-8 form-group pt-2 mx-auto">
                             <input type="text" className="form-control" placeholder="Subject" name="subject"/>
@@ -80,8 +103,6 @@ class Groups extends Component {
               </div>
             </div>
         </div>
-
-
       </>
     )
 }};
@@ -89,10 +110,21 @@ class Groups extends Component {
 const mapStateToProps = state => {
   console.log(state);
   const teamMembers = state.firebase.data.survey;
-  return { teamMembers: teamMembers };
+  return { 
+    bigChungusSurvey: state.firebase.data.bigChungusSurvey,
+    uid: state.firebase.auth.uid,
+  };
 };
 
 export default compose(
-  firebaseConnect([{path:'/users/sean/Organization/Survey', storeAs: 'survey'}]),
+  withRouter,
+  firebaseConnect( props => {
+    const uid = props.uid;
+    const groupId = props.match.params.orgId;
+    console.log(groupId + uid)
+    return [
+      {path:`/Organizations/${uid}/${groupId}`, storeAs: 'bigChungusSurvey'}
+    ]
+  }),
   connect(mapStateToProps),
 )(Groups);
