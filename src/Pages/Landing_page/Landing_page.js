@@ -8,25 +8,64 @@ import NavBar from 'react-bootstrap/NavBar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import office_pic from './Images/office.jpg';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
 import Var_footer from '../Components/Var_footer/Var_footer.js';
+
 import { useHistory } from 'react-router-dom';
+import { firebaseConnect } from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 
 
 class Landing_page extends Component {
-  constructor() {
-    super();
-    this.routeChange = this.routeChange.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      passwordConfirm: '',
+    };
   }
 
-  routeChange() {
-    let path = "/Homepage";
-    this.props.history.push(path);
-  }
+  handleChange = event => 
+    this.setState({ [event.target.name]: event.target.value, error:'' });
+
+  register = async () => {
+    console.log('registering')
+    const credentials = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    const profile = {
+      name: this.state.name,
+      email: this.state.email,
+    };
+
+    try {
+      await this.props.firebase.createUser(credentials, profile);
+    } 
+    catch (error) {
+      console.log(error.message);
+      this.setState({error: error.message})
+    }
+  };
 
   render () {
+    // if ((this.state.password !== this.state.passwordConfirm) && (this.state.passconfirm !== "Passwords do not match.")) {
+    //   this.setState({passconfirm: "Passwords do not match."})
+    // } else if (this.state.password === this.state.passwordConfirm && (this.state.passconfirm !== "")) {
+    //   this.setState({passconfirm: ""})
+    // }
+    // if (this.props.isLoggedIn) {
+    //   return <Redirect to="/groups" />
+    // }
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/homepage"/>
+    }
     return (
       <>
         <head>
@@ -47,19 +86,21 @@ class Landing_page extends Component {
           </div>
           <div className="SignUpBox">
             <h4 id="tagline">CS50's first drag and drop email service for organizers</h4>
+            <div>{this.state.error}</div>
+            <div>{this.state.passconfirm}</div>
             <Container className="SignUpBoxSub" fluid>
               <Form>
                 <Row>
                   <Col>
                     <Form.Group controlId="formBasicName">
                       <Form.Label>Name</Form.Label>
-                      <Form.Control onChange={this.nameChangedHandler} type="name" placeholder="Enter Name"/>
+                      <Form.Control name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter Name"/>
                     </Form.Group>
                   </Col>
                   <Col xs={7}>
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Enter Email"/>
+                      <Form.Control name="email" onChange={this.handleChange} value={this.state.email} type="email" placeholder="Enter Email"/>
                     </Form.Group>
                   </Col>
                 </Row>
@@ -67,7 +108,7 @@ class Landing_page extends Component {
                   <Col>
                     <Form.Group controlId="formBasicPassword">
                       <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" placeholder="Enter Password"/>
+                      <Form.Control name="password" onChange={this.handleChange} value={this.state.password} type="password" placeholder="Enter Password"/>
                       <Form.Text>
                         Please use one at least special character
                       </Form.Text>
@@ -76,11 +117,11 @@ class Landing_page extends Component {
                   <Col xs={7}>
                     <Form.Group controlId="formBasicConfirmation">
                       <Form.Label>Confirm Password</Form.Label>
-                      <Form.Control className="AnswerBoxes" type="password" placeholder="Confirm Password"/>
+                      <Form.Control onChange={this.handleChange} className="AnswerBoxes" type="password" placeholder="Confirm Password"/>
                     </Form.Group>
                   </Col>
                 </Row>
-                <Button type="submit" id="signUpButton" variant="dark" onClick={this.routeChange}>Sign me up!</Button>
+                <Button id="signUpButton" variant="dark" onClick={this.register}>Sign me up!</Button>
               </Form>
             </Container>
           </div>
@@ -90,4 +131,11 @@ class Landing_page extends Component {
     )
   }
 };
-export default Landing_page;
+
+const mapStateToProps = state => {
+  return {isLoggedIn: state.firebase.auth.uid};
+};
+
+export default compose(
+  firebaseConnect(),
+  connect(mapStateToProps))(Landing_page);

@@ -17,12 +17,17 @@ const Var_navbar = ( props ) => {
         <Navbar.Brand><p><Link to="/" className="Logo_text_link">VarMail</Link></p></Navbar.Brand>
           <Nav>
             <Nav.Link><Link to="/homepage" className="Nav_links">Dashboard</Link></Nav.Link>
-            <Nav.Link><Link to="/login" className="Nav_links">Login</Link></Nav.Link>
-            <Nav.Link><Link to="/" className="Nav_links">Logout</Link></Nav.Link>
+            {/* <Nav.Link><Link to="/login" className="Nav_links">Login</Link></Nav.Link>
+            <Nav.Link><Button onClick={() => props.firebase.logout} className="Nav_links">Logout</Button></Nav.Link> */}
           </Nav>
       </Navbar>
     </>
   )
 };
 
+const mapStateToProps = state => {
+  return {homepage: state.firebase.data['users'], email: state.firebase.auth.email}
+}
+
 export default Var_navbar;
+

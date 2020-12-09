@@ -8,6 +8,7 @@ import Routes from './Pages/Routes/Routes';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
+import 'firebase/auth';
 
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
@@ -43,7 +44,8 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 // react-redux-firebase config
 const rrfConfig = {
-  userProfile: 'users'
+  preserveOnLogout: ['profile'],
+  userProfile: 'users',
   // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
   // enableClaims: true // Get custom claims along with the profile
 };

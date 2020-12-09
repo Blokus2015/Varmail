@@ -50,7 +50,7 @@ class CreateSurvey extends Component {
         var doneQuestionList = (
             <>
                 <p>Question</p>
-                <p>You should start adding the people</p>
+                <p>{this.state.question}</p>
             </>
         )
 
@@ -66,7 +66,6 @@ class CreateSurvey extends Component {
             return <h name={people[uid].name} bio={people[uid].bio} uid={uid} shelterid={this.props.uid}/>
           });
         }
-
 
 
         return(
@@ -93,7 +92,7 @@ class CreateSurvey extends Component {
                             </Form.Group>
                            {doneQuestionList}
                             {questionList}
-                            <Button variant="dark surveyButton">Add New Question</Button>
+                            <Button variant="dark surveyButton" onClick={this.handleNewQuestion}>Add New Question</Button>
                         </Form>
                     </div>
                 </div>
