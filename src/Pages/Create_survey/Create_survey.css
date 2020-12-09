@@ -4,6 +4,24 @@
     text-align: center;
 }
 
+.surveyHeaders {
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
+
+.surveyInstructions {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+.surveyQuestions {
+    font-size: 18px;
+    color: black;
+    text-align: left;
+}
+
 .surveyBody {
     text-align: center;
     background-color: white;
@@ -18,6 +36,8 @@
 .surveyBodyInner {
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 20px;
+    text-align: center;
 }
 
 .surveyBG {
