@@ -32,6 +32,8 @@ const Routes = (props) => {
           <Route path="/survey_overlay" component={Survey_overlay} />
           <Route path="/view_survey" component={View_surveys} />
           <Route path="/testing" component={Test} />
+          <Route path="/Survey_overlay" component={Survey_overlay} />
+          <Route path="/View_surveys" component={View_surveys} />
           <Route component={Error_page} />
         </Switch>
     </>
