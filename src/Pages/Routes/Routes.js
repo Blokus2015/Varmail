@@ -10,7 +10,8 @@ import Groups from '../Groups/Groups.js';
 import Homepage from '../Homepage/Homepage.js';
 import Error_page from '../Error_page/Error_page.js';
 import Test from '../Components/Test/Test.js';
-
+import Survey_overlay from '../Survey_overlay/Survey_overlay.js';
+import View_surveys from '../View_surveys/View_surveys.js';
 
 
 const Routes = () => {
@@ -25,6 +26,8 @@ const Routes = () => {
           <Route exact path="/groups" component={Groups} />
           <Route path="/homepage" component={Homepage} />
           <Route path="/testing" component={Test} />
+          <Route path="/Survey_overlay" component={Survey_overlay} />
+          <Route path="/View_surveys" component={View_surveys} />
           <Route component={Error_page} />
         </Switch>
     </>

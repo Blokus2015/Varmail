@@ -33,7 +33,7 @@ class Register_org extends Component {
     const newOrg = {
       organizationName: this.state.organization,
     };
-    
+
     const onComplete = () => {
       console.log('actually added the org');
       //reset state for next org
@@ -45,7 +45,7 @@ class Register_org extends Component {
     this.props.firebase.update(`/`, updates, onComplete);
     console.log('added organization')
 
-  } 
+  }
 
 
   render() {
