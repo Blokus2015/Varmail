@@ -21,9 +21,7 @@ import { withRouter } from 'react-router-dom';
 class Homepage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      organizationsOwned: ["test1", "test2", "etc"],
     };
   }
 
@@ -33,17 +31,20 @@ class Homepage extends Component {
       return <div>Loading organization data...</div>
     }
     
-    const orgList = (<p>Sorry, you don't have any groups yet.</p>)
+    var orgList = (<p>Sorry, you don't have any groups yet.</p>)
     const myOrgs = this.props.myOrganizations;
    
     console.log('before ords func')
-    // if (myOrgs) {
+      if (myOrgs) {
       orgList =
       Object.keys(myOrgs).map((myOrgsid, myOrgsindex) => {
         console.log("ran through groups card.")
-        return <Org_card groupName={myOrgs[myOrgsid]}/>
+        return <Org_card groupName={myOrgs[myOrgsid].organizationName} orgId={Object.keys(myOrgs)[myOrgsindex]} uid={this.props.uid}/>
       });
- //   }
+      }
+
+    console.log(this.props.isLoggedIn)
+
     console.log('before ords func after')
     return (
       <>
@@ -62,11 +63,7 @@ class Homepage extends Component {
         }
         
       <div>
-          {this.state.organizationsOwned.map(item => (
-            <Org_card key={item} groupName={item} members="32" />
-          ))}
-
-          {}
+          {orgList}
       </div>
       </>
     )

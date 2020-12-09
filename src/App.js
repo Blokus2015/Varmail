@@ -13,13 +13,13 @@ const App = props => {
   }
     return (
       <BrowserRouter>
-        <Routes />
+        <Routes uid={props.uid}/>
       </BrowserRouter>
     );
 }
 
 const mapStateToProps = state => {
-  return{ auth: state.firebase.auth, profile: state.firebase.profile };
+  return{ auth: state.firebase.auth, profile: state.firebase.profile, uid: state.firebase.auth.uid };
 };
 
 export default connect(mapStateToProps)(App);
