@@ -31,8 +31,11 @@ class Org_card extends Component {
       console.log('finished handling survey');
     }
     this.props.firebase.update(`/`, updates, onComplete(this.props.orgId));
-    
+  }
 
+  handleGroups = () => {
+    console.log('handling group creation');
+    this.props.history.push(`/groups/${this.props.orgId}`, {state: { theOrgId: this.props.orgId }});
   }
 
   render(){
@@ -41,9 +44,9 @@ class Org_card extends Component {
         <div className="Card_base">
             <h3 className="Header_text">{this.props.groupName}</h3>
             <p className="Sub_text">{this.props.members} members</p>
-            <Button id="orgButton" variant="dark"><Link className="linkCustom" to="/groups">View Organization</Link></Button>
+            <Button id="orgButton" variant="dark" onClick={this.handleGroups.bind(this, this.props.orgId, this.props.uid)}>View Organization</Button>
             <Button variant="dark" id="SurveyButton" onClick={this.handleSurvey.bind(this, this.props.orgId, this.props.uid)}>Make survey</Button>
-            <Button id="surveysMade" variant="dark"><Link className="linkCustom" to="/create survey">View surveys made</Link></Button>
+            {/*<Button id="surveysMade" variant="dark"><Link className="linkCustom" to="/create survey">View surveys made</Link></Button>*/}
       </div>
       </>
   )
