@@ -16,7 +16,6 @@ class Register_org extends Component {
     super(props);
     this.state = {
       organization: '',
-      success: '',
     }
   }
 
@@ -58,7 +57,6 @@ class Register_org extends Component {
         <Var_navbar />
         <div className="Register">
           <h1 className="Title_register">Create an organization</h1>
-          {this.state.organization}
           <Form>
             <Form.Group as = {Row} controlId="formOrganizationName">
               <Form.Label column sm="2">Organization Name</Form.Label>

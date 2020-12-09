@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
-import { firebaseConnect, isLoaded } from 'react-redux-firebase';
+import { firebaseConnect, isLoaded, populate } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -21,20 +21,31 @@ import { withRouter } from 'react-router-dom';
 class Homepage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      id: this.props.match.params.id
-    }
+    };
   }
 
   render() {
-    var result = []
-    for (var i = 0; i < 10; i++) {
-      result.push(<Org_card groupName="Harvard Venture Capital Group dsasfadf"/>)
+
+    if (!isLoaded(this.props.myOrganizations)) {
+      return <div>Loading organization data...</div>
     }
-    if(!isLoaded(this.props.profile)) {
-      return<div>Profile loading for homepage...</div>
-    }
+    
+    var orgList = (<p>Sorry, you don't have any groups yet.</p>)
+    const myOrgs = this.props.myOrganizations;
+   
+    console.log('before ords func')
+      if (myOrgs) {
+      orgList =
+      Object.keys(myOrgs).map((myOrgsid, myOrgsindex) => {
+        console.log("ran through groups card.")
+        return <Org_card groupName={myOrgs[myOrgsid].organizationName} orgId={Object.keys(myOrgs)[myOrgsindex]} uid={this.props.uid}/>
+      });
+      }
+
+    console.log(this.props.isLoggedIn)
+
+    console.log('before ords func after')
     return (
       <>
         <Var_navbar />
@@ -51,19 +62,20 @@ class Homepage extends Component {
           </div>
         }
         
-        
-        {result}
+      <div>
+          {orgList}
+      </div>
       </>
     )
-  }
-};
+  };
+}
 
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     profile: state.firebase.data.profile, 
     email: state.firebase.auth.email,
     isLoggedIn: state.firebase.auth.uid,
+    myOrganizations: state.firebase.data.myOrganizations,
   }
 }
 
@@ -71,7 +83,8 @@ export default compose(
   firebaseConnect(props => {
     const uid = props.uid;
     return [
-      {path: `/users/${uid}`, storeAs: 'profile'}
+      {path: `/users/${uid}`, storeAs: 'profile'},
+      {path: `/Organizations/${uid}`, storeAs: 'myOrganizations'}
     ] 
   }),
   connect(mapStateToProps),)
