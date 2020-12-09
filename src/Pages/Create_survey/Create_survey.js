@@ -2,6 +2,11 @@ import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 import './Create_survey.css';
 import { Modal, Button, Form } from "react-bootstrap";
+import { Link, withRouter, Redirect } from 'react-router-dom';
+import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
+// import { firebaseConnect } from 'react-redux-firebase';
+// import { compose } from 'redux';
+// import { connect } from 'react-redux';
 
 {/*
 
@@ -107,7 +112,7 @@ export default CreateSurvey;
 
 */}
 
-
+{/*
 function CreateSurvey() {
 
 
@@ -171,5 +176,119 @@ function CreateSurvey() {
     </>
   );
 }
+
+export default CreateSurvey;
+
+
+*/}
+
+
+
+
+class CreateSurvey extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questionList: [],
+      question: '',
+      name: '',
+    };
+  }
+
+  addQuestion = () => {
+    if (!this.state.question.trim()) {
+      alert('Cannot add a blank question');
+      return;
+    }
+
+    const newQuestion = { question: this.state.question};
+    const questionList = this.state.questionList.slice().concat(newQuestion);
+    this.setState({questionList, question: ''});
+  };
+
+  deleteQuestion = index => {
+    const questionList = this.state.questionList.slice();
+    questionList.splice(index, 1);
+    this.setState({ questionList });
+  };
+
+  handleChange = event =>
+    this.setState({ [event.target.name]: event.target.value });
+
+  render() {
+
+    const questionList = this.state.questionList.map((question, index) => {
+      return (
+        <tr key={index}>
+          <td>{question.question}</td>
+          <td>
+            <Button variant="dark surveyButton"  onClick={() => this.deleteQuestion(index)}>Delete Question</Button>
+          </td>
+        </tr>
+      );
+    });
+
+    return (
+      <>
+      <Var_navbar />
+      <head>
+          <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous"
+          />
+      </head>
+      <div className="surveyBG">
+      <p className="surveyTitles">
+          Create A Survey
+      </p>
+      <p className="surveyInstructions">
+          Making a survey is easy- just create a title and add some questions!
+      </p>
+      <div className="surveyBody">
+      <div className="surveyBodyInner">
+      <h className="surveyHeaders">Survey Title</h>
+        <input
+          name="name"
+          onChange={this.handleChange}
+          placeholder="Enter your survey name here"
+          value={this.state.name}
+          />
+      <h className="surveyHeaders">Questions</h>
+      <ul className = "surveyQuestions">
+          <ul>{questionList}</ul>
+      </ul>
+          <input
+            name="question"
+            onChange={this.handleChange}
+            placeholder="Enter your question here"
+            value={this.state.question}
+          />
+          <Button variant="dark surveyButton" onClick={this.addQuestion}>Add Question</Button>
+       <br/>
+            <Button variant="dark surveyButton"
+              href="/Survey_overlay"
+              disabled={this.state.questionList.length === 0}
+            >
+              Finish Survey
+            </Button>
+
+
+          </div>
+          </div>
+
+
+
+
+
+
+      </div>
+      </>
+    );
+  }
+}
+
+
 
 export default CreateSurvey;
