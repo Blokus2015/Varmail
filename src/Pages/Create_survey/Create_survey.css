@@ -8,11 +8,18 @@
     font-size: 24px;
     color: black;
     text-align: center;
+    padding-top: 10px;
+
 }
 
 input {
   width: 100%;
 }
+
+Button {
+  padding-top: 100px;
+}
+
 
 .surveyInstructions {
     font-size: 24px;
@@ -40,7 +47,7 @@ input {
 .surveyBodyInner {
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 20px;
+    padding-top: 10px;
     text-align: center;
 }
 

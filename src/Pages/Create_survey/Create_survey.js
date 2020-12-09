@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import './Create_survey.css';
 import { Modal, Button, Form } from "react-bootstrap";
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import Var_navbar from '../Components/Var_navbar/Var_navbar.js';
 // import { firebaseConnect } from 'react-redux-firebase';
 // import { compose } from 'redux';
 // import { connect } from 'react-redux';
@@ -188,27 +189,27 @@ class CreateSurvey extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: [],
-      front: '',
+      questionList: [],
+      question: '',
       name: '',
     };
   }
 
-  addCard = () => {
-    if (!this.state.front.trim()) {
+  addQuestion = () => {
+    if (!this.state.question.trim()) {
       alert('Cannot add a blank question');
       return;
     }
 
-    const newCard = { front: this.state.front};
-    const cards = this.state.cards.slice().concat(newCard);
-    this.setState({ cards, front: ''});
+    const newQuestion = { question: this.state.question};
+    const questionList = this.state.questionList.slice().concat(newQuestion);
+    this.setState({questionList, question: ''});
   };
 
-  deleteCard = index => {
-    const cards = this.state.cards.slice();
-    cards.splice(index, 1);
-    this.setState({ cards });
+  deleteQuestion = index => {
+    const questionList = this.state.questionList.slice();
+    questionList.splice(index, 1);
+    this.setState({ questionList });
   };
 
   handleChange = event =>
@@ -216,12 +217,12 @@ class CreateSurvey extends React.Component {
 
   render() {
 
-    const cards = this.state.cards.map((card, index) => {
+    const questionList = this.state.questionList.map((question, index) => {
       return (
         <tr key={index}>
-          <td>{card.front}</td>
+          <td>{question.question}</td>
           <td>
-            <Button variant="dark surveyButton"  onClick={() => this.deleteCard(index)}>Delete Question</Button>
+            <Button variant="dark surveyButton"  onClick={() => this.deleteQuestion(index)}>Delete Question</Button>
           </td>
         </tr>
       );
@@ -229,6 +230,7 @@ class CreateSurvey extends React.Component {
 
     return (
       <>
+      <Var_navbar />
       <head>
           <link
           rel="stylesheet"
@@ -255,21 +257,19 @@ class CreateSurvey extends React.Component {
           />
       <h className="surveyHeaders">Questions</h>
       <ul className = "surveyQuestions">
-          <ul>{cards}</ul>
+          <ul>{questionList}</ul>
       </ul>
           <input
-            name="front"
+            name="question"
             onChange={this.handleChange}
             placeholder="Enter your question here"
-            value={this.state.front}
+            value={this.state.question}
           />
-
-          <Button variant="dark surveyButton" onClick={this.addCard}>Add Question</Button>
+          <Button variant="dark surveyButton" onClick={this.addQuestion}>Add Question</Button>
        <br/>
             <Button variant="dark surveyButton"
               href="/Survey_overlay"
-              disabled={this.state.cards.length === 0}
-              onClick={this.createDeck}
+              disabled={this.state.questionList.length === 0}
             >
               Finish Survey
             </Button>
