@@ -80,12 +80,12 @@ class Landing_page extends Component {
             <h1 className="Logo_text">Varmail</h1>
             <div className="MainTextBox">
                 <h1 className="HeadingText">
-                  It’s hard to send personalized emails to your whole team. We think we can help.
+                  It’s hard to send personalized emails. We think we can help.
                 </h1>
             </div>
           </div>
           <div className="SignUpBox">
-            <h4 id="tagline">CS50's first drag and drop email service for organizers</h4>
+            <h4 id="tagline">A personalized email service for organizers</h4>
             <div>{this.state.error}</div>
             <div>{this.state.passconfirm}</div>
             <Container className="SignUpBoxSub" fluid>

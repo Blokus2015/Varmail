@@ -8,3 +8,17 @@
 .Card_grid {
   display: grid | inline-grid;
 }
+
+.textBoxYeet {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.addNewOrgBox {
+  color: white;
+}
+
+.addNewOrgBox:hover {
+  color: white;
+  text-decoration: none;
+}

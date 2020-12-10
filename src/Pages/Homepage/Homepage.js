@@ -51,21 +51,21 @@ class Homepage extends Component {
         <Var_navbar />
         {
           this.props.isLoggedIn ?
-            <div>
+            <div className="textBoxYeet">
               <p>Welcome Back, {this.props.email}!</p>
               <p>Not {this.props.email}?</p><Button onClick={() => this.props.firebase.logout()} variant="dark">Logout</Button>
             </div> :
-          <div>
+          <div className="textBoxYeet">
             <Link to='/'>Register</Link>
             <br></br>
             <Link to='login'>Login</Link>
           </div>
         }
         
-      <div>
+      <div className="textBoxYeet">
           {orgList}
           <br></br>
-          <Button variant="dark"><Link to="/register_org">Create new organization</Link></Button>
+          <Button variant="dark"><Link className="addNewOrgBox" to="/register_org">Create new organization</Link></Button>
       </div>
       </>
     )

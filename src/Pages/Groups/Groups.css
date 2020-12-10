@@ -5,7 +5,11 @@
   --mainBackgroundColor: #ffffff;
 }
 
-
+.sendMessageButtonYeet {
+  background-color: var(--accentColor);
+  border-radius: 10px;
+  color: white;
+}
 /* circle background info */
 .Groups_title {
   font-family: 'Roboto Condensed', sans-serif;

@@ -92,21 +92,21 @@ class Create_survey extends Component {
       </head>
       <div className="surveyBG">
       <p className="surveyTitles">
-          Create A Survey
+          Create A Message
       </p>
       <p className="surveyInstructions">
-          Making a survey is easy--just create a title and add some questions!
+          Sending a message is easy--just add some text!
       </p>
       <div className="surveyBody">
       <div className="surveyBodyInner">
-      <h className="surveyHeaders">Survey Title</h>
+      <h className="surveyHeaders">Title</h>
         <input
           name="name"
           value={this.state.name}
           onChange={this.handleChange}
           placeholder="Enter your survey name here"
           />
-      <h className="surveyHeaders">Questions</h>
+      <h className="surveyHeaders">Message</h>
       <ul className = "surveyQuestions">
           <ul>{questionList}</ul>
       </ul>
@@ -116,10 +116,10 @@ class Create_survey extends Component {
             placeholder="Enter your question here"
             value={this.state.question}
           />
-          <Button variant="dark surveyButton" onClick={this.addQuestion}>Add Question</Button>
+          <Button variant="dark surveyButton" onClick={this.addQuestion} disabled={this.state.questionList.length === 1 || !this.state.name}>Add Message</Button>
        <br/>
             <Button variant="dark surveyButton" href="/Survey_overlay" disabled={this.state.questionList.length === 0 || !this.state.name} onClick={this.finishSurvey.bind(this, this.state.name, this.props.location.state.state.theOrgId, this.state.questionList)}>
-              Finish Survey
+              Finish Message
             </Button>
           </div>
           </div>

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { firebaseConnect, isLoaded } from  'react-redux-firebase';
 import { compose } from 'redux';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import Var_footer from '../Components/Var_footer/Var_footer.js';
 
 class Groups extends Component {
   constructor(props) {
@@ -62,7 +63,9 @@ class Groups extends Component {
       surveyList =
       Object.keys(mySurveys).map((mySurveyId, mySurveyindex) => {
         console.log("in surveys")
-        return <Button onClick={() => this.handleSendSurvey(mySurveyId)}>{mySurveys[mySurveyId].title}</Button>
+        if((mySurveys[mySurveyId].title)) {
+        return <Button variant="dark" onClick={() => this.handleSendSurvey(mySurveyId)}>{mySurveys[mySurveyId].title}</Button>
+        }
       });
       }
 
@@ -71,11 +74,13 @@ class Groups extends Component {
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"/>
+
       </head>
 
         <Link to="/" variant="dark">Back</Link>
         <div className="Groups_title">
-          <h1>Send out survey</h1>
+          <h1>Send out Message</h1>
           {/*<p>{this.props.teamMembers.surveyQuestion1.answers.answer1}</p>
           <p>{this.props.teamMembers.surveyQuestion1.answers.answer2}</p> */}
         </div>
@@ -94,25 +99,26 @@ class Groups extends Component {
                             <input type="text" className="form-control" placeholder="Your Name" name="from_Name"/>
                         </div>
                         <div className="col-8 form-group pt-2 mx-auto">
-                            <input type="text" className="form-control" placeholder="To name" name="to_Name"/>
+                            <input type="text" className="form-control" placeholder="Recipient name" name="to_Name"/>
+                        </div>
+                        <div className="col-8 form-group mx-auto">
+                            <input type="text" className="form-control" placeholder="Recipient email" name="emailToSendTo"/>
                         </div>
                         <div className="col-8 form-group pt-2 mx-auto">
                             <input type="text" className="form-control" placeholder="Subject" name="subject"/>
-                        </div>
-                        <div className="col-8 form-group mx-auto">
-                            <input type="text" className="form-control" placeholder="emailToSendTo" name="emailToSendTo"/>
                         </div>
                         <div className="col-8 form-group pt-2 mx-auto">
                             <textarea className="form-control" id="" cols="30" rows="8" placeholder="Your message" name="message" value={this.state.message.toString()}></textarea>
                         </div>
                         <div className="col-8 pt-3 mx-auto">
-                            <input type="submit" className="btn btn-info" value="Send Message"></input>
+                            <input type="submit" className="sendMessageButtonYeet" value="Send Message"></input>
                         </div>
                     </div>
                 </form>
               </div>
             </div>
         </div>
+        <Var_footer />
       </>
     )
 }};

@@ -31,19 +31,11 @@ render() {
     <div className="surveyBody">
     <div className="surveyBodyInner">
     <p className="surveyHeaders">
-        Congratulations on creating your survey! 
+        Congratulations on creating your message! 
     </p>
 
     <p className="surveyText">
-        Copy the link below to send it out
-    </p>
-
-    <p className="surveyText">
-        *insert link here* 
-    </p>
-
-    <p className="surveyText">
-        Your survey results will be automatically uploaded under the "View Organization" button on the Home Page
+        Your message results will be automatically uploaded under the "View Organization" button on the Home Page
     </p>
 
     <Button variant="dark surveyButton" href="/homepage" class="button">Click here to get to the Home Page</Button>
