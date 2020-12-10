@@ -12,10 +12,7 @@ class Groups extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sender: '',
-      recipient: '',
-      subject: '',
-      message: '',
+      message: [],
     };
   }
 
@@ -32,11 +29,28 @@ class Groups extends Component {
         e.target.reset()
     }
 
-  handleSendSurvey = () => {
-    this.setState({sender: 'from sean', recipient: 'seanroades@gmail.com', subject: 'this is my subject', })
+  handleSendSurvey = (id) => {
+
+    var questionMessages = {};
+    console.log('in handlingSendSurvey')
+    console.log(id)
+    console.log(this.props.bigChungusSurvey[id])
+    console.log('proceeding to change message')
+    if (this.props.bigChungusSurvey) {
+      for (var i = 0; i < this.props.bigChungusSurvey[id].questionsInList.length; i++) {
+        console.log("trying to update message")
+        console.log(this.props.bigChungusSurvey[id].questionsInList[i])
+        const questionForMessage = this.state.message.slice().concat(this.props.bigChungusSurvey[id].questionsInList[i].question)
+        this.setState({message: questionForMessage})
+        console.log("message updated")
+      };
+    }
   }
 
   render(){
+
+    console.log('message state below')
+    console.log(this.state.message);
 
     var surveyList = <p>no surveys yet!</p>
 
@@ -48,7 +62,7 @@ class Groups extends Component {
       surveyList =
       Object.keys(mySurveys).map((mySurveyId, mySurveyindex) => {
         console.log("in surveys")
-        return <Button onClick={this.handleSendSurvey}>{mySurveys[mySurveyId].title}</Button>
+        return <Button onClick={() => this.handleSendSurvey(mySurveyId)}>{mySurveys[mySurveyId].title}</Button>
       });
       }
 
@@ -85,8 +99,11 @@ class Groups extends Component {
                         <div className="col-8 form-group pt-2 mx-auto">
                             <input type="text" className="form-control" placeholder="Subject" name="subject"/>
                         </div>
+                        <div className="col-8 form-group mx-auto">
+                            <input type="text" className="form-control" placeholder="emailToSendTo" name="emailToSendTo"/>
+                        </div>
                         <div className="col-8 form-group pt-2 mx-auto">
-                            <textarea className="form-control" id="" cols="30" rows="8" placeholder="Your message" name="message"></textarea>
+                            <textarea className="form-control" id="" cols="30" rows="8" placeholder="Your message" name="message" value={this.state.message.toString()}></textarea>
                         </div>
                         <div className="col-8 pt-3 mx-auto">
                             <input type="submit" className="btn btn-info" value="Send Message"></input>
