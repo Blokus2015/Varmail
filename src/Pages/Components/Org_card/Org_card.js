@@ -43,9 +43,9 @@ class Org_card extends Component {
       <>
         <div className="Card_base">
             <h3 className="Header_text">{this.props.groupName}</h3>
-            <p className="Sub_text">{this.props.members} members</p>
-            <Button id="orgButton" variant="dark" onClick={this.handleGroups.bind(this, this.props.orgId, this.props.uid)}>View Organization</Button>
-            <Button variant="dark" id="SurveyButton" onClick={this.handleSurvey.bind(this, this.props.orgId, this.props.uid)}>Make survey</Button>
+            <p className="Sub_text">Click Below for info on messages</p>
+            <Button id="orgButton" variant="dark" onClick={this.handleGroups.bind(this, this.props.orgId, this.props.uid)}>Send emails</Button>
+            <Button variant="dark" id="SurveyButton" onClick={this.handleSurvey.bind(this, this.props.orgId, this.props.uid)}>Make Message</Button>
             {/*<Button id="surveysMade" variant="dark"><Link className="linkCustom" to="/create survey">View surveys made</Link></Button>*/}
       </div>
       </>
