@@ -16,6 +16,10 @@ input {
   width: 100%;
 }
 
+textarea {
+    width: 100%;
+}
+
 Button {
   padding-top: 100px;
 }
