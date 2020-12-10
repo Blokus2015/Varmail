@@ -104,7 +104,7 @@ class Create_survey extends Component {
           name="name"
           value={this.state.name}
           onChange={this.handleChange}
-          placeholder="Enter your survey name here"
+          placeholder="Enter your message title here"
           />
       <h className="surveyHeaders">Message</h>
       <ul className = "surveyQuestions">
@@ -113,7 +113,7 @@ class Create_survey extends Component {
           <textarea
             name="question"
             onChange={this.handleChange}
-            placeholder="Enter your question here"
+            placeholder="Enter your message here"
             value={this.state.question}
           />
           <Button variant="dark surveyButton" onClick={this.addQuestion} disabled={this.state.questionList.length === 1 || !this.state.name}>Add Message</Button>
