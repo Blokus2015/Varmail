@@ -67,7 +67,7 @@ class Create_survey extends Component {
         <tr key={index}>
           <td>{question.question}</td>
           <td>
-            <Button variant="dark surveyButton"  onClick={() => this.deleteQuestion(index)}>Delete Question</Button>
+            <Button variant="dark surveyButton"  onClick={() => this.deleteQuestion(index)}>Delete Message Text</Button>
           </td>
         </tr>
       );
@@ -110,7 +110,7 @@ class Create_survey extends Component {
       <ul className = "surveyQuestions">
           <ul>{questionList}</ul>
       </ul>
-          <input
+          <textarea
             name="question"
             onChange={this.handleChange}
             placeholder="Enter your question here"
